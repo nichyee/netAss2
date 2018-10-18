@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button loginButton;
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            loginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userNameTextBox
@@ -67,21 +68,23 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
-            // button1
+            // loginButton
             // 
-            this.button1.Location = new System.Drawing.Point(535, 264);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "submit";
-            this.button1.UseVisualStyleBackColor = true;
+            loginButton.Location = new System.Drawing.Point(535, 264);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new System.Drawing.Size(75, 23);
+            loginButton.TabIndex = 4;
+            loginButton.Text = "Login";
+            loginButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(loginButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordTextBox);
@@ -99,6 +102,5 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
     }
 }
