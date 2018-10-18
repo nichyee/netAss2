@@ -35,6 +35,13 @@ namespace Assignment2
                     }
                     closeWindow();
                 }
+            } 
+            else if (!validateForm())
+            {
+                string message = "Please check that fields are populated";
+                string caption = "Register Error";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, buttons);
             }
         }
 

@@ -64,6 +64,8 @@ namespace Assignment2
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.nameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -219,7 +221,9 @@ namespace Assignment2
             this.italicsToolStripButton,
             this.underlineToolStripButon,
             this.toolStripSeparator3,
-            this.textSizeToolStipTextBox});
+            this.textSizeToolStipTextBox,
+            this.toolStripSeparator4,
+            this.nameToolStripLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -365,6 +369,17 @@ namespace Assignment2
             this.pasteToolStripButton.Text = "&Paste";
             this.pasteToolStripButton.Click += new System.EventHandler(this.pasteToolStripButton_Click);
             // 
+            // nameToolStripLabel
+            // 
+            this.nameToolStripLabel.Name = "nameToolStripLabel";
+            this.nameToolStripLabel.Size = new System.Drawing.Size(89, 22);
+            this.nameToolStripLabel.Text = "Name: OJSAHD";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
             // TextEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,6 +438,8 @@ namespace Assignment2
         private System.Windows.Forms.ToolStripButton cutToolStripButton;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripLabel nameToolStripLabel;
     }
 }
 

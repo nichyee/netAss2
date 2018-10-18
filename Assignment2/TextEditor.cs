@@ -21,6 +21,7 @@ namespace Assignment2
             PopulateFontSizes();
             this.user = user;
             accessibilityControl();
+            nameToolStripLabel.Text = ("User Name: " + user.firstName);
         }
 
 
