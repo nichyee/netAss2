@@ -11,13 +11,18 @@ using System.Windows.Forms;
 
 namespace Assignment2
 {
-    public partial class Form1 : Form
+    public partial class TextEditor : Form
     {
-        public Form1()
+        public User user;
+        public Login loginForm;
+        public TextEditor(User user)
         {
             InitializeComponent();
             PopulateFontSizes();
+            this.user = user;
+            accessibilityControl();
         }
+
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
@@ -146,7 +151,7 @@ namespace Assignment2
 
         private void openFile()
         {
-            openFileDialog1.Filter = "Text Files|*.txt";
+            openFileDialog1.Filter = "Rich Text Format|*.rtf";
             openFileDialog1.Title = "Open";
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -183,6 +188,32 @@ namespace Assignment2
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Paste();
+        }
+
+        private void accessibilityControl()
+        {
+            string accessibility = user.permission;
+            if (accessibility.Equals("View"))
+            {
+                richTextBox1.ReadOnly = true;
+            } 
+            else
+            {
+                richTextBox1.ReadOnly = false;
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            loginForm = new Login();
+            loginForm.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.Show();
         }
     }
 }

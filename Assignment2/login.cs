@@ -11,14 +11,15 @@ using System.Windows.Forms;
 
 namespace Assignment2
 {
-    public partial class login : Form
+    public partial class Login : Form
     {
 
-        private const string path = @"C:\Users\Nick\source\repos\Assignment2\Assignment2\login.txt";
+        private const string path = @"login.txt";
         private List<User> userList;
-        private Form1 form;
+        private TextEditor editorForm;
+        private Register registerForm;
 
-        public login()
+        public Login()
         {
             InitializeComponent();
             setupLogins();
@@ -34,23 +35,31 @@ namespace Assignment2
                 string[] temp = new string[5];
                 temp = line.Split(',');
 
-                User user = new User(temp[0], temp[1], temp[2], temp[3], temp[4]);
+                User user = new User(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5]);
                 userList.Add(user);
             }
-            
+
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             int index = checkUserName();
 
-            if (index >= 0)
+            if (index >= 0 && checkPassword(index))
             {
-                if (checkPassword(index))
-                {
-                    form = new Form1();
-                    form.Show();
-                }
+
+                User user = userList[index];
+                this.Hide();
+                editorForm = new TextEditor(user);
+                editorForm.Show();
+
+            }
+            else
+            {
+                string message = "Incorrect Username / Password";
+                string caption = "Login Error";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, buttons);
             }
         }
 
@@ -80,6 +89,18 @@ namespace Assignment2
                 }
             }
             return index;
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            registerForm = new Register();
+            registerForm.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
